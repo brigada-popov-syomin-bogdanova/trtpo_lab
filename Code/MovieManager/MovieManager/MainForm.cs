@@ -204,6 +204,9 @@ namespace MovieManager
                         {
                             for (int j = 0; j < ElemList.Count; ++j)
                             {
+                                if (i == j)
+                                    continue;
+
                                 if (NameTextBox.Text == ElemList[j].name)
                                 {
                                     MessageBox.Show("Element with this name already exists");
