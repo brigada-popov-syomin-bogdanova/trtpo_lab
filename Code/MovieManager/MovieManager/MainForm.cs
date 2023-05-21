@@ -58,6 +58,8 @@ namespace MovieManager
         {
             srh_form.SearchListBox.Items.Clear();
             srh_form.Hide();
+            MoviesListBox.ClearSelected();
+            BooksListBox.ClearSelected();
             if (filePath != "" && NameTextBox.Text != "")
             {
                 if (GlobalTabControl.SelectedIndex == 0)
@@ -200,6 +202,15 @@ namespace MovieManager
                     for (int i = 0; i < ElemList.Count; ++i)
                         if (ElemList[i].name == MoviesListBox.SelectedItem.ToString())
                         {
+                            for (int j = 0; j < ElemList.Count; ++j)
+                            {
+                                if (NameTextBox.Text == ElemList[j].name)
+                                {
+                                    MessageBox.Show("Element with this name already exists");
+                                    return;
+                                }
+                            }
+
                             ElemList[i].name = NameTextBox.Text;
                             ElemList[i].description = DescRichTextBox.Text;
                             ElemList[i].date = DateTextBox.Text;
