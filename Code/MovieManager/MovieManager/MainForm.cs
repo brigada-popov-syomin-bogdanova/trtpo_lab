@@ -345,53 +345,12 @@ namespace MovieManager
 
         private void MoviesListBox_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-            int index = this.MoviesListBox.IndexFromPoint(e.Location);
-            if (index != System.Windows.Forms.ListBox.NoMatches)
-            {
-                string name = "";
-
-                name = MoviesListBox.SelectedItem.ToString();
-
-                for (int i = 0; i < ElemList.Count(); ++i)
-                {
-                    if (name == ElemList[i].name)
-                    {
-                        filePath = ElemList[i].image;
-                        NameTextBox.Text = ElemList[i].name;
-                        DescRichTextBox.Text = ElemList[i].description;
-                        DateTextBox.Text = ElemList[i].date;
-                        AuthorsTextBox.Text = ElemList[i].authors;
-                        CountryTextBox.Text = ElemList[i].country;
-                        MBArtPictureBox.Image = Image.FromFile(ElemList[i].image);
-                        MBArtPictureBox.ImageLocation = ElemList[i].image;
-                        break;
-                    }
-                }
-            }
+           
         }
 
         private void BooksListBox_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-            int index = this.BooksListBox.IndexFromPoint(e.Location);
-            if (index != System.Windows.Forms.ListBox.NoMatches)
-            {
-                string name = BooksListBox.SelectedItem.ToString();
-
-                for (int i = 0; i < ElemList.Count(); ++i)
-                {
-                    if (name == ElemList[i].name)
-                    {
-                        filePath = ElemList[i].image;
-                        NameTextBox.Text = ElemList[i].name;
-                        DescRichTextBox.Text = ElemList[i].description;
-                        DateTextBox.Text = ElemList[i].date;
-                        AuthorsTextBox.Text = ElemList[i].authors;
-                        CountryTextBox.Text = ElemList[i].country;
-                        MBArtPictureBox.Image = Image.FromFile(ElemList[i].image);
-                        break;
-                    }
-                }
-            }
+           
         }
         //rich sort
         private void SearchButton_Click(object sender, EventArgs e)
@@ -440,6 +399,57 @@ namespace MovieManager
             catch
             {
 
+            }
+        }
+
+        private void MoviesListBox_MouseClick(object sender, MouseEventArgs e)
+        {
+            int index = this.MoviesListBox.IndexFromPoint(e.Location);
+            if (index != System.Windows.Forms.ListBox.NoMatches)
+            {
+                string name = "";
+
+                name = MoviesListBox.SelectedItem.ToString();
+
+                for (int i = 0; i < ElemList.Count(); ++i)
+                {
+                    if (name == ElemList[i].name)
+                    {
+                        filePath = ElemList[i].image;
+                        NameTextBox.Text = ElemList[i].name;
+                        DescRichTextBox.Text = ElemList[i].description;
+                        DateTextBox.Text = ElemList[i].date;
+                        AuthorsTextBox.Text = ElemList[i].authors;
+                        CountryTextBox.Text = ElemList[i].country;
+                        MBArtPictureBox.Image = Image.FromFile(ElemList[i].image);
+                        MBArtPictureBox.ImageLocation = ElemList[i].image;
+                        break;
+                    }
+                }
+            }
+        }
+
+        private void BooksListBox_MouseClick(object sender, MouseEventArgs e)
+        {
+            int index = this.BooksListBox.IndexFromPoint(e.Location);
+            if (index != System.Windows.Forms.ListBox.NoMatches)
+            {
+                string name = BooksListBox.SelectedItem.ToString();
+
+                for (int i = 0; i < ElemList.Count(); ++i)
+                {
+                    if (name == ElemList[i].name)
+                    {
+                        filePath = ElemList[i].image;
+                        NameTextBox.Text = ElemList[i].name;
+                        DescRichTextBox.Text = ElemList[i].description;
+                        DateTextBox.Text = ElemList[i].date;
+                        AuthorsTextBox.Text = ElemList[i].authors;
+                        CountryTextBox.Text = ElemList[i].country;
+                        MBArtPictureBox.Image = Image.FromFile(ElemList[i].image);
+                        break;
+                    }
+                }
             }
         }
     }

@@ -101,6 +101,7 @@
             this.MoviesListBox.Size = new System.Drawing.Size(453, 602);
             this.MoviesListBox.Sorted = true;
             this.MoviesListBox.TabIndex = 0;
+            this.MoviesListBox.MouseClick += new System.Windows.Forms.MouseEventHandler(this.MoviesListBox_MouseClick);
             this.MoviesListBox.DoubleClick += new System.EventHandler(this.MoviesListBox_DoubleClick);
             this.MoviesListBox.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.MoviesListBox_MouseDoubleClick);
             // 
@@ -126,6 +127,7 @@
             this.BooksListBox.Size = new System.Drawing.Size(453, 602);
             this.BooksListBox.Sorted = true;
             this.BooksListBox.TabIndex = 1;
+            this.BooksListBox.MouseClick += new System.Windows.Forms.MouseEventHandler(this.BooksListBox_MouseClick);
             this.BooksListBox.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.BooksListBox_MouseDoubleClick);
             // 
             // MBArtPictureBox
