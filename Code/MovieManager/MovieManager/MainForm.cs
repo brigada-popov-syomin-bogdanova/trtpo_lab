@@ -66,10 +66,21 @@ namespace MovieManager
                         if (MoviesListBox.Items[i].ToString() == NameTextBox.Text)
                         {
                             MessageBox.Show("Element with this name already exists");
+                            filePath = "";
+                            NameTextBox.Text = "";
+                            DescRichTextBox.Text = "";
+                            DateTextBox.Text = "";
+                            AuthorsTextBox.Text = "";
+                            CountryTextBox.Text = "";
+                            MBArtPictureBox.Image = Image.FromFile("clear_image.jpg");
                             return;
                         }
+                    
+
+                    int shift = filePath.IndexOf("images\\");
+                    string short_filepath = filePath.Substring(shift, filePath.Length - shift);
                     MovieBookData temp = new MovieBookData(NameTextBox.Text, DescRichTextBox.Text, DateTextBox.Text,
-                    AuthorsTextBox.Text, CountryTextBox.Text, filePath, Convert.ToInt32(GlobalTabControl.SelectedIndex));
+                    AuthorsTextBox.Text, CountryTextBox.Text, short_filepath, Convert.ToInt32(GlobalTabControl.SelectedIndex));
                     ElemList.Add(temp);
                     MoviesListBox.Items.Add(NameTextBox.Text);
                 }
@@ -80,6 +91,13 @@ namespace MovieManager
                         if (BooksListBox.Items[i].ToString() == NameTextBox.Text)
                         {
                             MessageBox.Show("Element with this name already exists");
+                            filePath = "";
+                            NameTextBox.Text = "";
+                            DescRichTextBox.Text = "";
+                            DateTextBox.Text = "";
+                            AuthorsTextBox.Text = "";
+                            CountryTextBox.Text = "";
+                            MBArtPictureBox.Image = Image.FromFile("clear_image.jpg");
                             return;
                         }
                     MovieBookData temp = new MovieBookData(NameTextBox.Text, DescRichTextBox.Text, DateTextBox.Text,
