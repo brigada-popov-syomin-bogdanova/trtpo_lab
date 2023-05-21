@@ -327,6 +327,7 @@ namespace MovieManager
                 {
                     if (name == ElemList[i].name)
                     {
+                        filePath = ElemList[i].image;
                         NameTextBox.Text = ElemList[i].name;
                         DescRichTextBox.Text = ElemList[i].description;
                         DateTextBox.Text = ElemList[i].date;
@@ -351,6 +352,7 @@ namespace MovieManager
                 {
                     if (name == ElemList[i].name)
                     {
+                        filePath = ElemList[i].image;
                         NameTextBox.Text = ElemList[i].name;
                         DescRichTextBox.Text = ElemList[i].description;
                         DateTextBox.Text = ElemList[i].date;
