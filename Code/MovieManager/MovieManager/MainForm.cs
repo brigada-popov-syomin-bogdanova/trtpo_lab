@@ -58,7 +58,7 @@ namespace MovieManager
         {
             srh_form.SearchListBox.Items.Clear();
             srh_form.Hide();
-            if (filePath != "")
+            if (filePath != "" && NameTextBox.Text != "")
             {
                 if (GlobalTabControl.SelectedIndex == 0)
                 {
