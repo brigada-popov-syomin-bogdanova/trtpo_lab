@@ -18,8 +18,10 @@ namespace MovieManager
     {
         //[XmlArray("Collection"), XmlArrayItem("Item")]
 
+        Search srh_form = new Search();
+        public List<MovieBookData> ElemList;
 
-        List<MovieBookData> ElemList;
+        public bool info_form_flag = false;
 
         string filePath = string.Empty;
         public MainForm()
@@ -29,6 +31,9 @@ namespace MovieManager
 
         private void MainForm_Load(object sender, EventArgs e)
         {
+            srh_form.Owner = this;
+
+
             ElemList = new List<MovieBookData>();
             if (File.Exists("data.json"))
             {
@@ -51,6 +56,8 @@ namespace MovieManager
 
         private void NewItemButton_Click(object sender, EventArgs e)
         {
+            srh_form.SearchListBox.Items.Clear();
+            srh_form.Hide();
             if (filePath != "")
             {
                 if (GlobalTabControl.SelectedIndex == 0)
@@ -59,7 +66,7 @@ namespace MovieManager
                         if (MoviesListBox.Items[i].ToString() == NameTextBox.Text)
                         {
                             MessageBox.Show("Element with this name already exists");
-                            return;                        
+                            return;
                         }
                     MovieBookData temp = new MovieBookData(NameTextBox.Text, DescRichTextBox.Text, DateTextBox.Text,
                     AuthorsTextBox.Text, CountryTextBox.Text, filePath, Convert.ToInt32(GlobalTabControl.SelectedIndex));
@@ -104,6 +111,9 @@ namespace MovieManager
 
         private void DeleteItemButton_Click(object sender, EventArgs e)
         {
+
+            srh_form.SearchListBox.Items.Clear();
+            srh_form.Hide();
             if (GlobalTabControl.SelectedIndex == 0)
             {
                 for (int i = 0; i < ElemList.Count; ++i)
@@ -160,6 +170,9 @@ namespace MovieManager
 
         private void SaveSettingsButton_Click(object sender, EventArgs e)
         {
+
+            srh_form.SearchListBox.Items.Clear();
+            srh_form.Hide();
             if (MoviesListBox.Items.Count == 0 && BooksListBox.Items.Count == 0)
                 return;
 
@@ -241,6 +254,9 @@ namespace MovieManager
 
         private void LoadNewButton_Click(object sender, EventArgs e)
         {
+
+            srh_form.SearchListBox.Items.Clear();
+            srh_form.Hide();
             var fileContent = string.Empty;
 
 
@@ -263,37 +279,31 @@ namespace MovieManager
                     fileContent = reader.ReadToEnd();
                 }
             }
+            if (filePath == "")
+            {
+                MessageBox.Show("Field if empty");
+                return;
+            }
             try
             {
                 MBArtPictureBox.Image = Image.FromFile(filePath);
                 MBArtPictureBox.ImageLocation = filePath;
             }
-            catch
+            catch (System.OutOfMemoryException)
             {
                 MessageBox.Show("To big file!");
             }
         }
-        private void SortList()
-        {
-
-        }
-
-        private void LoadImage()
-        {
-
-        }
 
         private void helpToolStripMenuItem_Click(object sender, EventArgs e)
         {
+
+            srh_form.SearchListBox.Items.Clear();
+            srh_form.Hide();
             MessageBox.Show("Help");
         }
 
         private void MoviesListBox_DoubleClick(object sender, EventArgs e)
-        {
-
-        }
-
-        private void LoadPicture(string file_path)
         {
 
         }
@@ -346,52 +356,50 @@ namespace MovieManager
                 }
             }
         }
-
+        //rich sort
         private void SearchButton_Click(object sender, EventArgs e)
         {
-            int i = 0;
-            if (NameRadioButton.Checked)
-                while (i < ElemList.Count)
-                {
-                    if (ElemList[i].name == SearchTextBox.Text)
+            srh_form.Show();
+            try
+            {
+                int i = 0;
+                if (NameRadioButton.Checked)
+                    while (i < ElemList.Count)
                     {
-                        break;
+                        if (ElemList[i].type_flag == GlobalTabControl.SelectedIndex)
+                            if (ElemList[i].name.IndexOf(SearchTextBox.Text) != -1)
+                                srh_form.SearchListBox.Items.Add(ElemList[i].name);
+                        ++i;
                     }
-                    ++i;
-                }
-            if (DateRadioButton.Checked)
-                while (i < ElemList.Count)
-                {
-                    if (ElemList[i].date == SearchTextBox.Text)
+                if (DateRadioButton.Checked)
+                    while (i < ElemList.Count)
                     {
-                        break;
+                        if (ElemList[i].type_flag == GlobalTabControl.SelectedIndex)
+                            if (ElemList[i].date.IndexOf(SearchTextBox.Text) != -1)
+                                srh_form.SearchListBox.Items.Add(ElemList[i].name);
+                        ++i;
                     }
-                    ++i;
-                }
-            if (AuthorsRadioButton.Checked)
-                while (i < ElemList.Count)
-                {
-                    if (ElemList[i].authors == SearchTextBox.Text)
+                if (AuthorsRadioButton.Checked && ElemList[i].type_flag == 0)
+                    while (i < ElemList.Count)
                     {
-                        break;
+                        if (ElemList[i].type_flag == GlobalTabControl.SelectedIndex)
+                            if (ElemList[i].authors.IndexOf(SearchTextBox.Text) != -1)
+                                srh_form.SearchListBox.Items.Add(ElemList[i].name);
+                        ++i;
                     }
-                    ++i;
-                }
-            if (CountryRadioButton.Checked)
-                while (i < ElemList.Count)
-                {
-                    if (ElemList[i].country == SearchTextBox.Text)
+                if (CountryRadioButton.Checked && ElemList[i].type_flag == 0)
+                    while (i < ElemList.Count)
                     {
-                        break;
+                        if (ElemList[i].type_flag == GlobalTabControl.SelectedIndex)
+                            if (ElemList[i].country.IndexOf(SearchTextBox.Text) != -1)
+                                srh_form.SearchListBox.Items.Add(ElemList[i].name);
+                        ++i;
                     }
-                    ++i;
-                }
-            NameTextBox.Text = ElemList[i].name;
-            DescRichTextBox.Text = ElemList[i].description;
-            DateTextBox.Text = ElemList[i].date;
-            AuthorsTextBox.Text = ElemList[i].authors;
-            CountryTextBox.Text = ElemList[i].country;
-            MBArtPictureBox.Image = Image.FromFile(ElemList[i].image);
+            }
+            catch
+            {
+
+            }
         }
     }
 }

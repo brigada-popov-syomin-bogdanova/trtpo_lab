@@ -30,3 +30,4 @@ C:\ivan\WorkProgramms\vis_prog\MovieManager\MovieManager\bin\Debug\System.Text.J
 C:\ivan\WorkProgramms\vis_prog\MovieManager\MovieManager\bin\Debug\System.Threading.Tasks.Extensions.xml
 C:\ivan\WorkProgramms\vis_prog\MovieManager\MovieManager\bin\Debug\System.ValueTuple.xml
 C:\ivan\WorkProgramms\vis_prog\MovieManager\MovieManager\obj\Debug\MovieManager.csproj.CopyComplete
+C:\ivan\WorkProgramms\vis_prog\MovieManager\MovieManager\obj\Debug\MovieManager.Search.resources

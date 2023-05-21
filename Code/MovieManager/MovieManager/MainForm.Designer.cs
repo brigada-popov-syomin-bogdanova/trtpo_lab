@@ -215,7 +215,7 @@
             // 
             this.CountryTextBox.Location = new System.Drawing.Point(348, 157);
             this.CountryTextBox.Name = "CountryTextBox";
-            this.CountryTextBox.Size = new System.Drawing.Size(224, 34);
+            this.CountryTextBox.Size = new System.Drawing.Size(395, 34);
             this.CountryTextBox.TabIndex = 10;
             // 
             // label3
@@ -231,7 +231,7 @@
             // 
             this.AuthorsTextBox.Location = new System.Drawing.Point(348, 117);
             this.AuthorsTextBox.Name = "AuthorsTextBox";
-            this.AuthorsTextBox.Size = new System.Drawing.Size(224, 34);
+            this.AuthorsTextBox.Size = new System.Drawing.Size(395, 34);
             this.AuthorsTextBox.TabIndex = 7;
             // 
             // label2
@@ -271,7 +271,7 @@
             // 
             this.NameTextBox.Location = new System.Drawing.Point(29, 360);
             this.NameTextBox.Name = "NameTextBox";
-            this.NameTextBox.Size = new System.Drawing.Size(189, 34);
+            this.NameTextBox.Size = new System.Drawing.Size(842, 34);
             this.NameTextBox.TabIndex = 4;
             // 
             // NewItemButton
@@ -421,37 +421,38 @@
         }
 
         #endregion
-        private System.Windows.Forms.TabControl GlobalTabControl;
-        private System.Windows.Forms.TabPage tabPage1;
-        private System.Windows.Forms.TabPage tabPage2;
-        private System.Windows.Forms.ListBox MoviesListBox;
-        private System.Windows.Forms.ListBox BooksListBox;
-        private System.Windows.Forms.PictureBox MBArtPictureBox;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox DateTextBox;
-        private System.Windows.Forms.RichTextBox DescRichTextBox;
-        private System.Windows.Forms.TextBox NameTextBox;
-        private System.Windows.Forms.TextBox AuthorsTextBox;
-        private System.Windows.Forms.Button NewItemButton;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox CountryTextBox;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Button DeleteItemButton;
-        private System.Windows.Forms.Button SaveSettingsButton;
-        private System.Windows.Forms.Button LoadNewButton;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox SearchTextBox;
-        private System.Windows.Forms.Button SearchButton;
-        private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
-        private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.RadioButton CountryRadioButton;
-        private System.Windows.Forms.RadioButton AuthorsRadioButton;
-        private System.Windows.Forms.RadioButton DateRadioButton;
-        private System.Windows.Forms.RadioButton NameRadioButton;
+
+        public System.Windows.Forms.TabControl GlobalTabControl;
+        public System.Windows.Forms.TabPage tabPage1;
+        public System.Windows.Forms.TabPage tabPage2;
+        public System.Windows.Forms.ListBox MoviesListBox;
+        public System.Windows.Forms.ListBox BooksListBox;
+        public System.Windows.Forms.PictureBox MBArtPictureBox;
+        public System.Windows.Forms.GroupBox groupBox1;
+        public System.Windows.Forms.Label label2;
+        public System.Windows.Forms.Label label1;
+        public System.Windows.Forms.TextBox DateTextBox;
+        public System.Windows.Forms.RichTextBox DescRichTextBox;
+        public System.Windows.Forms.TextBox NameTextBox;
+        public System.Windows.Forms.TextBox AuthorsTextBox;
+        public System.Windows.Forms.Button NewItemButton;
+        public System.Windows.Forms.Label label4;
+        public System.Windows.Forms.TextBox CountryTextBox;
+        public System.Windows.Forms.Label label3;
+        public System.Windows.Forms.Button DeleteItemButton;
+        public System.Windows.Forms.Button SaveSettingsButton;
+        public System.Windows.Forms.Button LoadNewButton;
+        public System.Windows.Forms.Label label6;
+        public System.Windows.Forms.Label label5;
+        public System.Windows.Forms.TextBox SearchTextBox;
+        public System.Windows.Forms.Button SearchButton;
+        public System.Windows.Forms.MenuStrip menuStrip1;
+        public System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
+        public System.Windows.Forms.GroupBox groupBox2;
+        public System.Windows.Forms.RadioButton CountryRadioButton;
+        public System.Windows.Forms.RadioButton AuthorsRadioButton;
+        public System.Windows.Forms.RadioButton DateRadioButton;
+        public System.Windows.Forms.RadioButton NameRadioButton;
     }
 }
 

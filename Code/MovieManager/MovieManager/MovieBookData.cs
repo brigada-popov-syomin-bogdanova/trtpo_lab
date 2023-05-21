@@ -11,7 +11,7 @@ using System.Xml.Serialization;
 namespace MovieManager
 {
     [Serializable]
-    internal class MovieBookData
+    public class MovieBookData
     {
         public string name { get; set; }
         public string description { get; set; }
