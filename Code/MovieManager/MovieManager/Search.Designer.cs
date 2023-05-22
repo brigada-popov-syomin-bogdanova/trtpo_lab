@@ -42,6 +42,7 @@
             this.SearchListBox.Size = new System.Drawing.Size(538, 654);
             this.SearchListBox.Sorted = true;
             this.SearchListBox.TabIndex = 0;
+            this.SearchListBox.MouseClick += new System.Windows.Forms.MouseEventHandler(this.SearchListBox_MouseClick);
             this.SearchListBox.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.SearchListBox_MouseDoubleClick);
             // 
             // CloseButton

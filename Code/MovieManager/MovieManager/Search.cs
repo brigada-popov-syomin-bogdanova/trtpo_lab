@@ -39,6 +39,11 @@ namespace MovieManager
 
         private void SearchListBox_MouseDoubleClick(object sender, MouseEventArgs e)
         {
+            
+        }
+
+        private void SearchListBox_MouseClick(object sender, MouseEventArgs e)
+        {
             MainForm main = this.Owner as MainForm;
 
             int index = SearchListBox.IndexFromPoint(e.Location);

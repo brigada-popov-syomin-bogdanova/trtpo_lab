@@ -408,15 +408,22 @@ namespace MovieManager
                                 srh_form.SearchListBox.Items.Add(ElemList[i].name);
                         ++i;
                     }
-                if (AuthorsRadioButton.Checked && ElemList[i].type_flag == 0)
+                if (AuthorsRadioButton.Checked)
+                {
                     while (i < ElemList.Count)
                     {
                         if (ElemList[i].type_flag == GlobalTabControl.SelectedIndex)
+                        {
                             if (ElemList[i].authors.IndexOf(SearchTextBox.Text) != -1)
+                            {
                                 srh_form.SearchListBox.Items.Add(ElemList[i].name);
+                            }
+                        }
                         ++i;
+
                     }
-                if (CountryRadioButton.Checked && ElemList[i].type_flag == 0)
+                }
+                if (CountryRadioButton.Checked)
                     while (i < ElemList.Count)
                     {
                         if (ElemList[i].type_flag == GlobalTabControl.SelectedIndex)
