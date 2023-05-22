@@ -74,7 +74,7 @@ namespace MovieManager
                             DateTextBox.Text = "";
                             AuthorsTextBox.Text = "";
                             CountryTextBox.Text = "";
-                            MBArtPictureBox.Image = Image.FromFile("clear_image.jpg");
+                            MBArtPictureBox.Image = Image.FromFile("images\\clear_image.jpg");
                             return;
                         }
 
@@ -89,7 +89,7 @@ namespace MovieManager
                     }
                     else
                     {
-                        short_filepath = "clear_image.jpg";
+                        short_filepath = "images\\clear_image.jpg";
                     }
                     MovieBookData temp = new MovieBookData(NameTextBox.Text, DescRichTextBox.Text, DateTextBox.Text,
                     AuthorsTextBox.Text, CountryTextBox.Text, short_filepath, Convert.ToInt32(GlobalTabControl.SelectedIndex));
@@ -109,7 +109,7 @@ namespace MovieManager
                             DateTextBox.Text = "";
                             AuthorsTextBox.Text = "";
                             CountryTextBox.Text = "";
-                            MBArtPictureBox.Image = Image.FromFile("clear_image.jpg");
+                            MBArtPictureBox.Image = Image.FromFile("images\\clear_image.jpg");
                             return;
                         }
                     MovieBookData temp = new MovieBookData(NameTextBox.Text, DescRichTextBox.Text, DateTextBox.Text,
@@ -136,7 +136,7 @@ namespace MovieManager
             DateTextBox.Text = "";
             AuthorsTextBox.Text = "";
             CountryTextBox.Text = "";
-            MBArtPictureBox.Image = Image.FromFile("clear_image.jpg");
+            MBArtPictureBox.Image = Image.FromFile("images\\clear_image.jpg");
         }
 
         private void DeleteItemButton_Click(object sender, EventArgs e)
@@ -169,7 +169,7 @@ namespace MovieManager
                     DateTextBox.Text = "";
                     AuthorsTextBox.Text = "";
                     CountryTextBox.Text = "";
-                    MBArtPictureBox.Image = Image.FromFile("clear_image.jpg");
+                    MBArtPictureBox.Image = Image.FromFile("images\\clear_image.jpg");
 
                     MoviesListBox.Items.Remove(MoviesListBox.SelectedItem);
                     string json_temp = JsonSerializer.Serialize(ElemList, typeof(List<MovieBookData>));
@@ -196,7 +196,7 @@ namespace MovieManager
                     DateTextBox.Text = "";
                     AuthorsTextBox.Text = "";
                     CountryTextBox.Text = "";
-                    MBArtPictureBox.Image = Image.FromFile("clear_image.jpg");
+                    MBArtPictureBox.Image = Image.FromFile("images\\clear_image.jpg");
 
                     BooksListBox.Items.Remove(BooksListBox.SelectedItem);
                     string json_temp = JsonSerializer.Serialize(ElemList, typeof(List<MovieBookData>));
