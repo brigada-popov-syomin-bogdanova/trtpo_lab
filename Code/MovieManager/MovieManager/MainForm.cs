@@ -60,7 +60,7 @@ namespace MovieManager
             srh_form.Hide();
             MoviesListBox.ClearSelected();
             BooksListBox.ClearSelected();
-            if (filePath != "" && NameTextBox.Text != "")
+            if (NameTextBox.Text != "")
             {
                 if (GlobalTabControl.SelectedIndex == 0)
                 {
@@ -77,10 +77,20 @@ namespace MovieManager
                             MBArtPictureBox.Image = Image.FromFile("clear_image.jpg");
                             return;
                         }
-                    
 
-                    int shift = filePath.IndexOf("images\\");
-                    string short_filepath = filePath.Substring(shift, filePath.Length - shift);
+
+                    int shift;
+                    string short_filepath;
+
+                    if (filePath != "")
+                    {
+                        shift = filePath.IndexOf("images\\");
+                        short_filepath = filePath.Substring(shift, filePath.Length - shift);
+                    }
+                    else
+                    {
+                        short_filepath = "clear_image.jpg";
+                    }
                     MovieBookData temp = new MovieBookData(NameTextBox.Text, DescRichTextBox.Text, DateTextBox.Text,
                     AuthorsTextBox.Text, CountryTextBox.Text, short_filepath, Convert.ToInt32(GlobalTabControl.SelectedIndex));
                     ElemList.Add(temp);
@@ -119,7 +129,7 @@ namespace MovieManager
             else
             {
                 MessageBox.Show("Fields is clear");
-            } 
+            }
             filePath = "";
             NameTextBox.Text = "";
             DescRichTextBox.Text = "";
@@ -134,57 +144,71 @@ namespace MovieManager
 
             srh_form.SearchListBox.Items.Clear();
             srh_form.Hide();
-            if (GlobalTabControl.SelectedIndex == 0)
+
+            if (MoviesListBox.Items.Count == 0 && BooksListBox.Items.Count == 0)
             {
-                for (int i = 0; i < ElemList.Count; ++i)
-                {
-                    if (ElemList[i].name == MoviesListBox.SelectedItem.ToString())
-                    {
-                        ElemList.Remove(ElemList[i]);
-                        break;
-                    }
-                }
-
-                NameTextBox.Text = "";
-                DescRichTextBox.Text = "";
-                DateTextBox.Text = "";
-                AuthorsTextBox.Text = "";
-                CountryTextBox.Text = "";
-                MBArtPictureBox.Image = Image.FromFile("clear_image.jpg");
-
-                MoviesListBox.Items.Remove(MoviesListBox.SelectedItem);
-                string json_temp = JsonSerializer.Serialize(ElemList, typeof(List<MovieBookData>));
-                StreamWriter file = File.CreateText("data.json");
-                file.WriteLine(json_temp);
-                file.Close();
-                MessageBox.Show("Item deleted!");
                 return;
-
             }
-            if (GlobalTabControl.SelectedIndex == 1)
+
+            try
             {
-                for (int i = 0; i < ElemList.Count; ++i)
+
+                if (GlobalTabControl.SelectedIndex == 0)
                 {
-                    if (ElemList[i].name == BooksListBox.SelectedItem.ToString())
+                    for (int i = 0; i < ElemList.Count; ++i)
                     {
-                        ElemList.Remove(ElemList[i]);
-                        break;
+                        if (ElemList[i].name == MoviesListBox.SelectedItem.ToString())
+                        {
+                            ElemList.Remove(ElemList[i]);
+                            break;
+                        }
                     }
+
+                    NameTextBox.Text = "";
+                    DescRichTextBox.Text = "";
+                    DateTextBox.Text = "";
+                    AuthorsTextBox.Text = "";
+                    CountryTextBox.Text = "";
+                    MBArtPictureBox.Image = Image.FromFile("clear_image.jpg");
+
+                    MoviesListBox.Items.Remove(MoviesListBox.SelectedItem);
+                    string json_temp = JsonSerializer.Serialize(ElemList, typeof(List<MovieBookData>));
+                    StreamWriter file = File.CreateText("data.json");
+                    file.WriteLine(json_temp);
+                    file.Close();
+                    MessageBox.Show("Item deleted!");
+                    return;
+
                 }
+                if (GlobalTabControl.SelectedIndex == 1)
+                {
+                    for (int i = 0; i < ElemList.Count; ++i)
+                    {
+                        if (ElemList[i].name == BooksListBox.SelectedItem.ToString())
+                        {
+                            ElemList.Remove(ElemList[i]);
+                            break;
+                        }
+                    }
 
-                NameTextBox.Text = "";
-                DescRichTextBox.Text = "";
-                DateTextBox.Text = "";
-                AuthorsTextBox.Text = "";
-                CountryTextBox.Text = "";
-                MBArtPictureBox.Image = Image.FromFile("clear_image.jpg");
+                    NameTextBox.Text = "";
+                    DescRichTextBox.Text = "";
+                    DateTextBox.Text = "";
+                    AuthorsTextBox.Text = "";
+                    CountryTextBox.Text = "";
+                    MBArtPictureBox.Image = Image.FromFile("clear_image.jpg");
 
-                BooksListBox.Items.Remove(BooksListBox.SelectedItem);
-                string json_temp = JsonSerializer.Serialize(ElemList, typeof(List<MovieBookData>));
-                StreamWriter file = File.CreateText("data.json");
-                file.WriteLine(json_temp);
-                file.Close();
-                MessageBox.Show("Item deleted!");
+                    BooksListBox.Items.Remove(BooksListBox.SelectedItem);
+                    string json_temp = JsonSerializer.Serialize(ElemList, typeof(List<MovieBookData>));
+                    StreamWriter file = File.CreateText("data.json");
+                    file.WriteLine(json_temp);
+                    file.Close();
+                    MessageBox.Show("Item deleted!");
+                }
+            }
+            catch
+            {
+
             }
         }
 
@@ -200,19 +224,8 @@ namespace MovieManager
                 if (GlobalTabControl.SelectedIndex == 0)
                 {
                     for (int i = 0; i < ElemList.Count; ++i)
-                        if (ElemList[i].name == MoviesListBox.SelectedItem.ToString())
+                        if (ElemList[i].name == MoviesListBox.SelectedItem.ToString() && ElemList[i].type_flag == 0)
                         {
-                            for (int j = 0; j < ElemList.Count; ++j)
-                            {
-                                if (i == j)
-                                    continue;
-
-                                if (NameTextBox.Text == ElemList[j].name)
-                                {
-                                    MessageBox.Show("Element with this name already exists");
-                                    return;
-                                }
-                            }
 
                             ElemList[i].name = NameTextBox.Text;
                             ElemList[i].description = DescRichTextBox.Text;
@@ -225,6 +238,7 @@ namespace MovieManager
                             StreamWriter file = File.CreateText("data.json");
                             file.WriteLine(json_temp);
                             file.Close();
+                            MessageBox.Show("Completed!");
 
                             MoviesListBox.Items.Clear();
 
@@ -234,11 +248,8 @@ namespace MovieManager
                                 {
                                     MoviesListBox.Items.Add(ElemList[j].name);
                                 }
-                                if (ElemList[j].type_flag == 1)
-                                {
-                                    BooksListBox.Items.Add(ElemList[j].name);
-                                }
                             }
+
                             return;
                         }
                 }
@@ -247,7 +258,7 @@ namespace MovieManager
                 {
                     for (int i = 0; i < ElemList.Count; ++i)
                     {
-                        if (ElemList[i].name == BooksListBox.SelectedItem.ToString())
+                        if (ElemList[i].name == BooksListBox.SelectedItem.ToString() && ElemList[i].type_flag == 1)
                         {
                             ElemList[i].name = NameTextBox.Text;
                             ElemList[i].description = DescRichTextBox.Text;
@@ -255,7 +266,6 @@ namespace MovieManager
                             ElemList[i].authors = AuthorsTextBox.Text;
                             ElemList[i].country = CountryTextBox.Text;
                             ElemList[i].image = MBArtPictureBox.ImageLocation;
-
 
                             string json_temp = JsonSerializer.Serialize(ElemList, typeof(List<MovieBookData>));
                             StreamWriter file = File.CreateText("data.json");
@@ -267,17 +277,12 @@ namespace MovieManager
 
                             for (int j = 0; j < ElemList.Count; ++j)
                             {
-                                if (ElemList[j].type_flag == 0)
-                                {
-                                    MoviesListBox.Items.Add(ElemList[j].name);
-                                }
                                 if (ElemList[j].type_flag == 1)
                                 {
                                     BooksListBox.Items.Add(ElemList[j].name);
                                 }
                             }
-
-                            break;
+                            return;
                         }
                     }
                 }
@@ -348,12 +353,12 @@ namespace MovieManager
 
         private void MoviesListBox_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-           
+
         }
 
         private void BooksListBox_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-           
+
         }
         //rich sort
         private void SearchButton_Click(object sender, EventArgs e)
@@ -416,7 +421,7 @@ namespace MovieManager
 
                 for (int i = 0; i < ElemList.Count(); ++i)
                 {
-                    if (name == ElemList[i].name)
+                    if (name == ElemList[i].name && ElemList[i].type_flag == 0)
                     {
                         filePath = ElemList[i].image;
                         NameTextBox.Text = ElemList[i].name;
@@ -441,7 +446,7 @@ namespace MovieManager
 
                 for (int i = 0; i < ElemList.Count(); ++i)
                 {
-                    if (name == ElemList[i].name)
+                    if (name == ElemList[i].name && ElemList[i].type_flag == 1)
                     {
                         filePath = ElemList[i].image;
                         NameTextBox.Text = ElemList[i].name;
@@ -454,6 +459,11 @@ namespace MovieManager
                     }
                 }
             }
+        }
+
+        private void MBArtPictureBox_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

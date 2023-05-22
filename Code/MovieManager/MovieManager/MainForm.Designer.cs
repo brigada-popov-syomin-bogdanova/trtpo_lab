@@ -140,6 +140,7 @@
             this.MBArtPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.MBArtPictureBox.TabIndex = 3;
             this.MBArtPictureBox.TabStop = false;
+            this.MBArtPictureBox.Click += new System.EventHandler(this.MBArtPictureBox_Click);
             // 
             // groupBox1
             // 
