@@ -23,7 +23,7 @@
 <a name="2"/>
 
 Рисунок 2.</br>
-![Рисунок 2](../Images/Testing/main_form.PNG)
+![Рисунок 2](../Images/Testing/main_form.png)
 
 <a name="3"/>
 
