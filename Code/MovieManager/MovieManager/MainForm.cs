@@ -75,6 +75,7 @@ namespace MovieManager
                             AuthorsTextBox.Text = "";
                             CountryTextBox.Text = "";
                             MBArtPictureBox.Image = Image.FromFile("images\\clear_image.jpg");
+                            MBArtPictureBox.ImageLocation = "images\\clear_image.jpg";
                             return;
                         }
 
@@ -110,6 +111,7 @@ namespace MovieManager
                             AuthorsTextBox.Text = "";
                             CountryTextBox.Text = "";
                             MBArtPictureBox.Image = Image.FromFile("images\\clear_image.jpg");
+                            MBArtPictureBox.ImageLocation = "images\\clear_image.jpg";
                             return;
                         }
 
@@ -151,6 +153,7 @@ namespace MovieManager
             AuthorsTextBox.Text = "";
             CountryTextBox.Text = "";
             MBArtPictureBox.Image = Image.FromFile("images\\clear_image.jpg");
+            MBArtPictureBox.ImageLocation = "images\\clear_image.jpg";
         }
 
         private void DeleteItemButton_Click(object sender, EventArgs e)
@@ -246,7 +249,10 @@ namespace MovieManager
                             ElemList[i].date = DateTextBox.Text;
                             ElemList[i].authors = AuthorsTextBox.Text;
                             ElemList[i].country = CountryTextBox.Text;
-                            ElemList[i].image = MBArtPictureBox.ImageLocation;
+
+                            filePath = MBArtPictureBox.ImageLocation;
+                            int shift = filePath.IndexOf("images\\");
+                            ElemList[i].image = filePath.Substring(shift, filePath.Length - shift);
 
                             string json_temp = JsonSerializer.Serialize(ElemList, typeof(List<MovieBookData>));
                             StreamWriter file = File.CreateText("data.json");
@@ -279,7 +285,10 @@ namespace MovieManager
                             ElemList[i].date = DateTextBox.Text;
                             ElemList[i].authors = AuthorsTextBox.Text;
                             ElemList[i].country = CountryTextBox.Text;
-                            ElemList[i].image = MBArtPictureBox.ImageLocation;
+
+                            filePath = MBArtPictureBox.ImageLocation;
+                            int shift = filePath.IndexOf("images\\");
+                            ElemList[i].image = filePath.Substring(shift, filePath.Length - shift);
 
                             string json_temp = JsonSerializer.Serialize(ElemList, typeof(List<MovieBookData>));
                             StreamWriter file = File.CreateText("data.json");
@@ -469,6 +478,7 @@ namespace MovieManager
                         AuthorsTextBox.Text = ElemList[i].authors;
                         CountryTextBox.Text = ElemList[i].country;
                         MBArtPictureBox.Image = Image.FromFile(ElemList[i].image);
+                        MBArtPictureBox.ImageLocation = ElemList[i].image;
                         break;
                     }
                 }
