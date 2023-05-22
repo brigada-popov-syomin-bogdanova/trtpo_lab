@@ -479,5 +479,18 @@ namespace MovieManager
         {
 
         }
+
+        private void GlobalTabControl_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            NameTextBox.Text = "";
+            DescRichTextBox.Text = "";
+            DateTextBox.Text = "";
+            AuthorsTextBox.Text = "";
+            CountryTextBox.Text = "";
+            MBArtPictureBox.Image = Image.FromFile("images\\clear_image.jpg");
+            MoviesListBox.ClearSelected();
+            BooksListBox.ClearSelected();
+
+        }
     }
 }
