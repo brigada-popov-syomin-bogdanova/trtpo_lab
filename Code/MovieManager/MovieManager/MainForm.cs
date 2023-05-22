@@ -424,15 +424,22 @@ namespace MovieManager
                     }
                 }
                 if (CountryRadioButton.Checked)
+                {
                     while (i < ElemList.Count)
                     {
+                        //MessageBox.Show("a1");
                         if (ElemList[i].type_flag == GlobalTabControl.SelectedIndex)
+                        {
+                            //MessageBox.Show("a2");
+                            //MessageBox.Show(ElemList[i].country);
                             if (ElemList[i].country.IndexOf(SearchTextBox.Text) != -1)
                             {
                                 srh_form.SearchListBox.Items.Add(ElemList[i].name);
                             }
+                        }
                         ++i;
                     }
+                }
             }
             catch
             {
