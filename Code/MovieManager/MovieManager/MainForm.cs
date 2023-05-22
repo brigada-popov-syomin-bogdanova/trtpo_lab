@@ -112,8 +112,22 @@ namespace MovieManager
                             MBArtPictureBox.Image = Image.FromFile("images\\clear_image.jpg");
                             return;
                         }
+
+                    int shift;
+                    string short_filepath;
+
+                    if (filePath != "")
+                    {
+                        shift = filePath.IndexOf("images\\");
+                        short_filepath = filePath.Substring(shift, filePath.Length - shift);
+                    }
+                    else
+                    {
+                        short_filepath = "images\\clear_image.jpg";
+                    }
+
                     MovieBookData temp = new MovieBookData(NameTextBox.Text, DescRichTextBox.Text, DateTextBox.Text,
-                    AuthorsTextBox.Text, CountryTextBox.Text, filePath, Convert.ToInt32(GlobalTabControl.SelectedIndex));
+                    AuthorsTextBox.Text, CountryTextBox.Text, short_filepath, Convert.ToInt32(GlobalTabControl.SelectedIndex));
                     ElemList.Add(temp);
                     BooksListBox.Items.Add(NameTextBox.Text);
                 }
