@@ -28,32 +28,32 @@
 <a name="3"/>
 
 Рисунок 3.</br>
-![Рисунок 3](../Images/Testing/load_new.PNG)
+![Рисунок 3](../Images/Testing/load_new.png)
 
 <a name="4"/>
 
 Рисунок 4.</br>
-![Рисунок 4](../Images/Testing/new_item_added.PNG)
+![Рисунок 4](../Images/Testing/new_item_added.png)
 
 <a name="5"/>
 
 Рисунок 5.</br>
-![Рисунок 5](../Images/Testing/green_mile.PNG)
+![Рисунок 5](../Images/Testing/green_mile.png)
 
 <a name="6"/>
 
 Рисунок 6.</br>
-![Рисунок 6](../Images/Testing/search_string.PNG)
+![Рисунок 6](../Images/Testing/search_string.png)
 
 <a name="7"/>
 
 Рисунок 7.</br>
-![Рисунок 7](../Images/Testing/search_string_form.PNG)
+![Рисунок 7](../Images/Testing/search_string_form.png)
 
 <a name="8"/>
 
 Рисунок 8.</br>
-![Рисунок 8](../Images/Testing/search_parametrs.PNG)
+![Рисунок 8](../Images/Testing/search_parametrs.png)
 
 <a name="9"/>
 
@@ -73,7 +73,7 @@
 <a name="12"/>
 
 Рисунок 12.</br>
-![Рисунок 12](../Images/Testing/search_green_mile.PNG)
+![Рисунок 12](../Images/Testing/search_green_mile.png)
 
 <a name="13"/>
 
@@ -88,17 +88,17 @@
 <a name="15"/>
 
 Рисунок 15.</br>
-![Рисунок 15](../Images/Testing/search_parametrs_date.PNG)
+![Рисунок 15](../Images/Testing/search_parametrs_date.png)
 
 <a name="16"/>
 
 Рисунок 16.</br>
-![Рисунок 16](../Images/Testing/search_string_date.PNG)
+![Рисунок 16](../Images/Testing/search_string_date.png)
 
 <a name="17"/>
 
 Рисунок 17.</br>
-![Рисунок 17](../Images/Testing/search_win_date.png)
+![Рисунок 17](../Images/Testing/search_win_date.PNG)
 
 <a name="18"/>
 
@@ -128,7 +128,7 @@
 <a name="23"/>
 
 Рисунок 23.</br>
-![Рисунок 23](../Images/Testing/search_parametrs_country.PNG)
+![Рисунок 23](../Images/Testing/search_parametrs_country.png)
 
 <a name="24"/>
 
@@ -153,12 +153,12 @@
 <a name="28"/>
 
 Рисунок 28.</br>
-![Рисунок 28](../Images/Testing/main_def.PNG)
+![Рисунок 28](../Images/Testing/main_def.png)
 
 <a name="29"/>
 
 Рисунок 29.</br>
-![Рисунок 29](../Images/Testing/main_chois.PNG)
+![Рисунок 29](../Images/Testing/main_chois.png)
 
 <a name="30"/>
 
@@ -168,7 +168,7 @@
 <a name="31"/>
 
 Рисунок 31.</br>
-![Рисунок 31](../Images/Testing/main_change.PNG)
+![Рисунок 31](../Images/Testing/main_change.png)
 
 <a name="32"/>
 
