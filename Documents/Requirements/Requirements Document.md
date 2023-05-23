@@ -132,13 +132,13 @@
 ### 2.2.2 Кнопка "New item"
 ![Кнопка "New item"](../../Images/Mockups/New_item.png)</br>
 Кнопка "New item" предназначена для очистки панели "Info" и создания нового объекта после заполнения полей на понели Info.</br>
-Для создания нового объека, поле "Name" на понели "Info" не должно быть пустым, иначе ![Fields_is_clear](../../Images/Mockups/Fields_is_clear.png)</br>.
+Для создания нового объека, поле "Name" на понели "Info" не должно быть пустым, иначе ![Fields_is_clear](../../Images/Mockups/Filds_is_clear.png)</br>.
 После успешного создания появится окно ![item_added](../../Images/Mockups/item_added.png)</br>.
 
 <a name="Delete_item"/>
 
 ### 2.2.3 Кнопка "Delete item"
-![Кнопка "Delete item"](../../Images/Mockups/Delete_item.png)</br>
+![Кнопка "Delete item"](../../Images/Mockups/delete_item.png)</br>
 Кнопка "Delete item" предназначена для удаления выбранного объекта на панели Movies/Books.
 После успешного удаления появиться окно ![item_deleted](../../Images/Mockups/item_deleted.png)</br>.
 
